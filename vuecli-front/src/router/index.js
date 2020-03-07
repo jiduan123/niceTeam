@@ -1,60 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-const VueRouterPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(to) {
-  return VueRouterPush.call(this, to).catch(err => err)
-}
-
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/dlc',
+    name: 'Delicious',
+    component: () => import('../views/Delicious.vue')
   },
   {
-    path: '/movie',
-    name: 'Movie',
-    component: () => import('../views/Movie.vue'),
+    path: '/sortv',
+    name: 'Sortv',
+    component: () => import('../components/sortview.vue')
   },
   {
-    path: "/cinema",
-    name: 'Cinema',
-    component: () => import('../components/movie/Cinema.vue')
+    path: '/shopv',
+    name: 'Shopv',
+    component: () => import('../components/shopview.vue')
   },
   {
-    path: "/my",
-    name: 'My',
-    component: () => import('../components/movie/My.vue')
+    path: '/groupinfo',
+    name: 'Groupinfo',
+    component: () => import('../components/groupinfo.vue')
   },
   {
-    path: "/detail",
-    name: 'Detail',
-    component: () => import('../components/movie/Detail.vue')
+    path: '/buying',
+    name: 'Buying',
+    component: () => import('../components/buying.vue')
   },
   {
-    path: '/ktv',
-    name: 'Ktv',
-    component: () => import('../views/Ktv.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue')
-  },
-  {
-    path: '/food',
-    name: 'Food',
-    component: () => import('../views/Food.vue')
-  },
-  {
-    path: '/beauty',
-    name: 'Beauty',
-    component: () => import('../views/Beauty.vue')
-  },
+    path: '/search',
+    name: 'Search',
+    component: () => import('../components/search.vue')
+  }
+
 ]
 
 const router = new VueRouter({
@@ -62,5 +42,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router
