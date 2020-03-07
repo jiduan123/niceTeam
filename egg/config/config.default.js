@@ -26,7 +26,7 @@ module.exports = appInfo => {
     config.cluster = {
         listen: {
           path: '',
-          port: 8081,
+          port: 8888,
           hostname: 'localhost',//默认localhost和ip地址,上线时用0.0.0.0
         }
       };
@@ -56,7 +56,7 @@ module.exports = appInfo => {
       // 密码
       password: 'root',
       // 数据库名
-      database: 'niceTeam',
+      database: 'niceteam',
     },
     // 是否加载到 app 上，默认开启
     app: true,
